@@ -11,11 +11,7 @@ public class StatsService {
     }
 
     public long average(long[] sales) {
-        long sumSale = 0; // сумма всех продаж
-        for (long sale : sales) {
-            sumSale += sale;
-        }
-
+        long sumSale = sum(sales);
         long averageSale = sumSale / sales.length;
 
         return averageSale;
@@ -44,11 +40,7 @@ public class StatsService {
 
     public int monthsBelowAverage(long[] sales) {
         int months = 0; // месяцы продаж ниже среднего
-        long sumSale = 0; // сумма всех продаж
-        for (long sale : sales) {
-            sumSale += sale;
-        }
-        long averageSale = sumSale / sales.length;
+        long averageSale = average(sales);
 
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < averageSale) {
@@ -60,11 +52,7 @@ public class StatsService {
 
     public int monthsAboveAverage(long[] sales) {
         int months = 0; // месяцы продаж ниже среднего
-        long sumSale = 0; // сумма всех продаж
-        for (long sale : sales) {
-            sumSale += sale;
-        }
-        long averageSale = sumSale / sales.length;
+        long averageSale = average(sales);
 
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > averageSale) {
